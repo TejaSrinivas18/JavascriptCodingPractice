@@ -1,0 +1,193 @@
+1)reduce------
+
+const arr=[1,2,3,4,5];
+ 
+ const total = arr.reduce((prev,curr) => prev+ curr);
+ console.log(total);
+
+
+2)map ------
+
+ const arr=[1,2,3,4,5];
+ 
+ const total = arr.map(item => item+10);
+ console.log(total);
+
+
+3)join -----
+
+ const arr=[1,2,3,4,5];
+ 
+ const total = arr.join(" "+10+" ");
+ console.log(total);
+
+
+4)entries-----
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+const f = fruits.entries();
+
+for(let x of f){
+    console.log(x);
+}
+
+
+5)keys-------
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+const f = fruits.keys();
+
+for(let x of f){
+    console.log(x);
+}
+
+
+6)immutable Object ---------
+
+let obj = {id:1,name:"teja"};
+Object.freeze(obj);
+obj.id = 5;
+console.log(obj);
+
+
+7) passed function as argument in another function --------
+
+let ab = function(a,b){
+console.log(a+b);
+}
+
+function func1(my1){
+console.log(my1);
+let a=50;
+let b=90;
+my1(a,b);
+
+}
+func1(ab);
+
+
+--->for of loop is used for arrays.
+
+--->for in loop is used for Objects.
+ 
+
+1) proto and prototype
+2) iterable
+3) enumerable
+4) closure
+5) function binding
+6) pure functions
+7) higher order functions
+
+1)type conversion----
+
+let value = "123456as";
+value = parseInt(value);
+console.log(value);
+
+
+2)class with normal function-------
+
+class Bike{
+
+show(){
+console.log(this);
+}
+}
+
+let b = new Bike();
+b.show();
+
+
+3)class with arrow function-----
+
+class Bike{
+
+show = () =>{
+console.log(this);
+}
+}
+
+let b = new Bike();
+b.show();
+
+
+
+4)function binding ---------
+
+const person = {
+  firstName:"John",
+  lastName: "Doe",
+  fullName: function () {
+    return this.firstName + " " + this.lastName;
+  }
+}
+
+const member = {
+  firstName:"Hege",
+  lastName: "Nilsen",
+}
+
+let fullName = person.fullName.bind(member);
+fullName();
+
+
+
+5)Higher-order functions----
+
+const arr1 = [1, 2, 3];
+const arr2 = arr1.map(item => item * 2);
+console.log(arr2);
+
+
+
+6)using prototype-----
+
+function Person(first, last, age, eye) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eye;
+}
+
+Person.prototype.nationality = "English";
+
+const myFather = new Person("John", "Doe", 50, "blue");
+const myMother = new Person("Sally", "Rally", 48, "green");
+
+console.log(myFather.nationality);
+
+
+
+7)without prototype -----
+
+function Person(first, last, age, eye) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eye;
+}
+
+Person.nationality = "English";
+
+const myFather = new Person("John", "Doe", 50, "blue");
+const myMother = new Person("Sally", "Rally", 48, "green");
+
+console.log(myFather.nationality); // undefined
+
+
+
+8)closure -----------
+
+function makeAdder(x) {
+  return function(y) {
+    return x + y;
+  };
+}
+
+var add5 = makeAdder(5);
+var add10 = makeAdder(10);
+
+console.log(add5(2));  // 7
+console.log(add10(2)); // 12
+
